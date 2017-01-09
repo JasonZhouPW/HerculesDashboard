@@ -7,7 +7,9 @@ RUN pip install  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.co
 COPY . /app
 
 #copy java env
-ADD jdk-8u112-linux-x64.tar.gz /usr/local
+#ADD jdk-8u112-linux-x64.tar.gz /usr/local
+RUN wget -P /user/local http://download.oracle.com/otn-pub/java/jdk/8u112-b15/jdk-8u112-linux-x64.tar.gz
+RUN tar -xvf /usr/local/jdk-8u112-linux-x64.tar.gz
 #copy chaintool src
 #ADD chaintool /usr/local/bin
 RUN wget -P /usr/local/bin https://github.com/hyperledger/fabric-chaintool/releases/download/v0.9.0/chaintool
